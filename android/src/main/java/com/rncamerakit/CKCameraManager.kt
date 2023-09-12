@@ -22,7 +22,7 @@ class CKCameraManager : SimpleViewManager<CKCamera>() {
         return CKCamera(context)
     }
 
-    override fun receiveCommand(view: CKCamera, commandId: String?, args: ReadableArray?) {
+    override fun receiveCommand(view: CKCamera, commandId: Int, args: ReadableArray?) {
         var logCommand = "CameraManager received command $commandId("
         for (i in 0..(args?.size() ?: 0)) {
             if (i > 0) {
@@ -98,11 +98,6 @@ class CKCameraManager : SimpleViewManager<CKCamera>() {
     @ReactProp(name = "outputPath")
     fun setOutputPath(view: CKCamera, path: String) {
         view.setOutputPath(path)
-    }
-
-    @ReactProp(name = "saveToCameraRoll")
-    fun saveToCameraRoll(view: CKCamera, enabled: Boolean) {
-        view.setSaveToCameraRoll(enabled);
     }
 
     @ReactProp(name = "shutterAnimationDuration")
